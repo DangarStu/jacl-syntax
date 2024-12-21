@@ -1,0 +1,42 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "JACL",
+    "patterns": [
+        { "include": "#comments" },
+        { "include": "#keywords" },
+        { "include": "#functions" }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.hash.customlang",
+                    "match": "#.*$"
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.customlang",
+                    "match": "\\b(if|else|endif|repeat|until|while|endwhile)\\b"
+                }
+            ]
+        },
+        "functions": {
+            "patterns": [
+                {
+                    "name": "entity.name.function.customlang",
+                    "begin": "^(?=\\{)",
+                    "end": "^(?=\\})",
+                    "patterns": [
+                        {
+                            "name": "meta.function.body.customlang",
+                            "match": ".+"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
